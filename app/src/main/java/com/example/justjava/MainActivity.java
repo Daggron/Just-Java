@@ -46,19 +46,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder(View view)
     {
-        displayPrice((c*5));
+        String message="Total = $"+(c*5)+"\nThank you!";
+        displayPrice(message);
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int Number){
-        TextView obj = (TextView) findViewById(R.id.quantity_text_view);
-        obj.setText(""+Number);
-    }
 
-    private void displayPrice(int Number){
+    private void displayPrice(String message){
         TextView pricetextview = (TextView) findViewById(R.id.price_text_view);
-        pricetextview.setText(NumberFormat.getCurrencyInstance().format(Number));
+        pricetextview.setText(message);
+
     }
 }
