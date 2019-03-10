@@ -12,6 +12,7 @@ import android.os.Bundle;
  **/
 
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 
@@ -27,9 +28,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     int c=0;
-    /**
-     * This method is called when the order button is clicked.
-     */
+    boolean isCream=false;
+
+    public void addtoppings(View view){
+        if(isCream){
+            isCream=false;
+        }
+        else{
+            isCream=true;
+        }
+    }
+
     public void incrementValue(View view){
         c++;
         TextView textView = (TextView) findViewById(R.id.quantity_text_view);
@@ -44,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
 
     private String calculateprice(int x){
 
-        return ("Total: $"+x*5+"\nQuantity: "+x+"\nThank you");
+        if(isCream)
+            return ("Total: $"+x*10+"\nQuantity: "+x+"\nThank you");
+        else
+            return ("Total: $"+x*5+"\nQuantity: "+x+"\nThank you");
     }
 
     public void submitOrder(View view)
@@ -62,4 +74,17 @@ public class MainActivity extends AppCompatActivity {
         pricetextview.setText(message);
 
     }
+
+    public void CancelOrder(View view){
+        c=0;
+        TextView textView = (TextView) findViewById(R.id.quantity_text_view);
+        textView.setText(String.valueOf(c));
+
+        isCream=false;
+        CheckBox checkBox =(CheckBox) findViewById(R.id.checkbox);
+        checkBox.setChecked(false);
+
+        displayPrice("Your Order is Cancelled");
+    }
+
 }
