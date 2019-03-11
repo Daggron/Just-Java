@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#F30012</item>
+        <item name="colorPrimaryDark">#F70047</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">#F71C59</item>
+    </style>
+
+</resources>
